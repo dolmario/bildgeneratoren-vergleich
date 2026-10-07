@@ -1,0 +1,113 @@
+{
+  "checked_utc": "2026-10-07T09:28:43.551244+00:00",
+  "new_inference": false,
+  "old_images": [
+    {
+      "model_folder": "01-Qwen-Image-2.1",
+      "files": [
+        {
+          "name": "qwen-image-2.1_1_seed11.png",
+          "bytes": 2020507,
+          "sha256": "ab3171c1bd01da458236d2a51e05d3f8ebfe2dbeb77756faf6ed7721e0744379"
+        },
+        {
+          "name": "qwen-image-2.1_2_seed22.png",
+          "bytes": 2004733,
+          "sha256": "74a143415655bc4bfb9805cf0893ef2395b3499e7ecfc31b800bad66ca45073c"
+        },
+        {
+          "name": "qwen-image-2.1_3_seed33.png",
+          "bytes": 2095443,
+          "sha256": "cd30d770961c17f12f9814998eba1c78ac34a507cde28b4805af1d705530fc21"
+        },
+        {
+          "name": "qwen-image-2.1_4_seed44.png",
+          "bytes": 2013745,
+          "sha256": "2f18ba4ecc0283b4dd80cb4c41b8c251192fed0bdf9f20e73a26d490fb19442e"
+        }
+      ]
+    },
+    {
+      "model_folder": "02-FLUX.2-dev",
+      "files": [
+        {
+          "name": "flux.2-dev_1_seed11.png",
+          "bytes": 1683931,
+          "sha256": "fa341cbcad1172d8a324d3af2382238b344a89ecf1d2474cbff5e058363e3322"
+        },
+        {
+          "name": "flux.2-dev_2_seed22.png",
+          "bytes": 1640236,
+          "sha256": "139e5df894fe4dbd911cd4013cddbeeb444299801063e5d4bbafa0cbdd92453e"
+        },
+        {
+          "name": "flux.2-dev_3_seed33.png",
+          "bytes": 1669918,
+          "sha256": "38777e136e152be14fdce53152cb282fcd3f4ee9d64e262f8f5d8a9becb4c2d6"
+        },
+        {
+          "name": "flux.2-dev_4_seed44.png",
+          "bytes": 1805857,
+          "sha256": "71455192a136e2e2e0189afebb2a7900d56242ce8ea64561fb2e286cb247636b"
+        }
+      ]
+    },
+    {
+      "model_folder": "03-FLUX.2-Klein-4B",
+      "files": [
+        {
+          "name": "flux.2-klein-4b_1_seed11.png",
+          "bytes": 1845860,
+          "sha256": "b33a2da3ebd8225518eccb585e6e9c8f531e31453d83582919c2df1f5f12c0c3"
+        },
+        {
+          "name": "flux.2-klein-4b_2_seed22.png",
+          "bytes": 1799964,
+          "sha256": "78bffdc60ddc7394c51ab367df257c9494bdf79aab2b3a7cbbc80f15e8569351"
+        },
+        {
+          "name": "flux.2-klein-4b_3_seed33.png",
+          "bytes": 1816681,
+          "sha256": "6cf5643c3f5b5738ba0e1885a56c1c20fa95da987890ddd6bef0fdaf9fe53a02"
+        },
+        {
+          "name": "flux.2-klein-4b_4_seed44.png",
+          "bytes": 1840001,
+          "sha256": "6b92ee438ff31f970679e84b3b0ab505c1cc931c1258aa731aa92fbe64ac781f"
+        }
+      ]
+    },
+    {
+      "model_folder": "04-FLUX.2-Klein-9B",
+      "files": [
+        {
+          "name": "flux.2-klein-9b_1_seed11.png",
+          "bytes": 1817937,
+          "sha256": "53e0fa97bc98c44c5d0fdc8ff35bc1e908137fa222fe3f607c1cb9c2bdc91518"
+        },
+        {
+          "name": "flux.2-klein-9b_2_seed22.png",
+          "bytes": 1830566,
+          "sha256": "8b7585e3bdadc0bf105f175617ad1c1a218b6cd2fceefe2f8a89b847af5daa33"
+        },
+        {
+          "name": "flux.2-klein-9b_3_seed33.png",
+          "bytes": 1794774,
+          "sha256": "ff02ac3cbcd6024f837806afd4adaaa639cd048a894c934c0be90a20f4ad4df6"
+        },
+        {
+          "name": "flux.2-klein-9b_4_seed44.png",
+          "bytes": 1775894,
+          "sha256": "85e435c2df03926d8188650174e533752af1bb72c5561b6333a71cdc586b0c95"
+        }
+      ]
+    }
+  ],
+  "tutorial_corrections": [
+    "Same seed across different models does not mean identical noise or equivalent settings.",
+    "API success alone does not establish colorization, prompt compliance or actual transparency.",
+    "No unsupported assertion that all local models are unfiltered or watermark-free.",
+    "Quality observations and old timing are sample-specific; no universal winner or fresh benchmark.",
+    "Use own fictional reference for new tutorial; no private family or Kling footage."
+  ]
+}

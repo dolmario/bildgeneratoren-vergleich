@@ -1,0 +1,44 @@
+{
+  "own_synthetic_prompts": true,
+  "actual_model_runs": false,
+  "tasks": [
+    {
+      "id": "objects",
+      "prompt": "A front-facing photograph of a white table with exactly three blue ceramic mugs, exactly five silver teaspoons and exactly two red apples. The objects are separated, fully visible and do not overlap. Plain gray background, soft light, square image, no lettering.",
+      "criteria": [
+        "three mugs",
+        "five teaspoons",
+        "two apples",
+        "all objects fully visible"
+      ]
+    },
+    {
+      "id": "text",
+      "prompt": "A rectangular cream greeting card with a clear black headline that reads exactly \"Alles Gute, Größe zählt!\". Under the headline is one small drawing of a pink llama, centered. Plain paper background, no other text, no signature.",
+      "criteria": [
+        "exact headline including ö and ß",
+        "one pink llama",
+        "no extra words"
+      ]
+    },
+    {
+      "id": "layout",
+      "prompt": "A simple wide illustration. On the left stands a fictional adult woman wearing a red jacket. In the center is one blue bicycle. On the right stands one green tree. No people or objects overlap, no text.",
+      "criteria": [
+        "woman left",
+        "bicycle center",
+        "tree right",
+        "no overlap"
+      ]
+    },
+    {
+      "id": "alpha",
+      "prompt": "This is an RGBA image with transparency. One original cute pink llama sticker, fully visible, with an actual transparent background and alpha channel. No text, no drawn checkerboard.",
+      "criteria": [
+        "one fully visible llama",
+        "actual nonopaque alpha pixels",
+        "no painted checkerboard"
+      ]
+    }
+  ]
+}
