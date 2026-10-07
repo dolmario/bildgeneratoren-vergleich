@@ -1,0 +1,1 @@
+task,model_id,model_revision,quantization,workflow_sha256,prompt_sha256,seed,width,height,steps,sampler,scheduler,cfg,first_or_warm_run,wall_seconds,peak_ram,peak_vram,actual_file,criterion_1,criterion_2,criterion_3,criterion_4,visual_preference,errors,notes
