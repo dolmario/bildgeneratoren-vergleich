@@ -1,0 +1,50 @@
+{
+  "38": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "38",
+        0
+      ],
+      "text": "A cinematic close-up photograph of a weathered brass compass resting on a folded nautical chart on a dark wooden desk, warm morning sunlight through a window, finely detailed engraved metal, realistic glass reflections, soft shadows, shallow depth of field, elegant travel still life, no logos."
+    }
+  },
+  "100": {
+    "class_type": "SaveConditioning",
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ],
+      "filename_prefix": "conditioning/compare-qwen-positive"
+    }
+  },
+  "7": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "38",
+        0
+      ],
+      "text": "low resolution, blurry, distorted compass, warped needle, logo, watermark"
+    }
+  },
+  "101": {
+    "class_type": "SaveConditioning",
+    "inputs": {
+      "conditioning": [
+        "7",
+        0
+      ],
+      "filename_prefix": "conditioning/compare-qwen-negative"
+    }
+  }
+}

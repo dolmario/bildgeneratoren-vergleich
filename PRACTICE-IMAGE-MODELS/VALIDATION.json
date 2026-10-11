@@ -1,0 +1,32 @@
+{
+  "created": "2026-10-11T07:58:17.285737+02:00",
+  "native_runs": {
+    "KLEIN": {
+      "seconds": 29.437000000005355,
+      "new_text_encoding": true,
+      "new_image_sampling": true
+    },
+    "QWEN-TEXT": {
+      "seconds": 13.23399999999674,
+      "new_text_encoding": true,
+      "new_image_sampling": false
+    },
+    "QWEN-IMAGE": {
+      "seconds": 457.03,
+      "new_text_encoding": false,
+      "new_image_sampling": true
+    }
+  },
+  "all_seven_models_full_sha_verified": true,
+  "prompt": "A cinematic close-up photograph of a weathered brass compass resting on a folded nautical chart on a dark wooden desk, warm morning sunlight through a window, finely detailed engraved metal, realistic glass reflections, soft shadows, shallow depth of field, elegant travel still life, no logos.",
+  "seed": 205932306,
+  "width": 1024,
+  "height": 1024,
+  "profiles_differ": true,
+  "flux_reference_is_existing_previous_run": true,
+  "flux_conditioning_is_existing_previous_text": true,
+  "earlier_flux_reference_seconds": 406.657,
+  "existing_amd_driver_python_torch": true,
+  "fresh_driver_install": false,
+  "downloaded_public_execution_pending": true
+}
