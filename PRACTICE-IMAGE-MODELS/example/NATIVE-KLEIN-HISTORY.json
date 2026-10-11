@@ -1,0 +1,878 @@
+{
+  "prompt": [
+    0,
+    "f33d5dfe-4c57-4c85-911a-d66ae8bc5801",
+    {
+      "1": {
+        "inputs": {
+          "unet_name": "flux-2-klein-4b-fp8.safetensors",
+          "weight_dtype": "default"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "Load Diffusion Model"
+        }
+      },
+      "2": {
+        "inputs": {
+          "clip_name": "qwen_3_4b.safetensors",
+          "type": "flux2",
+          "device": "default"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "Load CLIP"
+        }
+      },
+      "3": {
+        "inputs": {
+          "vae_name": "flux2-vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "Load VAE"
+        }
+      },
+      "4": {
+        "inputs": {
+          "text": "A cinematic close-up photograph of a weathered brass compass resting on a folded nautical chart on a dark wooden desk, warm morning sunlight through a window, finely detailed engraved metal, realistic glass reflections, soft shadows, shallow depth of field, elegant travel still life, no logos.",
+          "clip": [
+            "2",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Prompt)"
+        }
+      },
+      "5": {
+        "inputs": {
+          "conditioning": [
+            "4",
+            0
+          ]
+        },
+        "class_type": "ConditioningZeroOut",
+        "_meta": {
+          "title": "Conditioning Zero Out"
+        }
+      },
+      "90": {
+        "inputs": {
+          "cfg": 1.0,
+          "model": [
+            "1",
+            0
+          ],
+          "positive": [
+            "4",
+            0
+          ],
+          "negative": [
+            "5",
+            0
+          ]
+        },
+        "class_type": "CFGGuider",
+        "_meta": {
+          "title": "CFG Guider"
+        }
+      },
+      "91": {
+        "inputs": {
+          "steps": 4,
+          "width": 1024,
+          "height": 1024
+        },
+        "class_type": "Flux2Scheduler",
+        "_meta": {
+          "title": "Flux2Scheduler"
+        }
+      },
+      "92": {
+        "inputs": {
+          "width": 1024,
+          "height": 1024,
+          "batch_size": 1
+        },
+        "class_type": "EmptyFlux2LatentImage",
+        "_meta": {
+          "title": "Empty Flux 2 Latent"
+        }
+      },
+      "93": {
+        "inputs": {
+          "sampler_name": "euler"
+        },
+        "class_type": "KSamplerSelect",
+        "_meta": {
+          "title": "KSamplerSelect"
+        }
+      },
+      "94": {
+        "inputs": {
+          "noise_seed": 205932306
+        },
+        "class_type": "RandomNoise",
+        "_meta": {
+          "title": "RandomNoise"
+        }
+      },
+      "95": {
+        "inputs": {
+          "noise": [
+            "94",
+            0
+          ],
+          "guider": [
+            "90",
+            0
+          ],
+          "sampler": [
+            "93",
+            0
+          ],
+          "sigmas": [
+            "91",
+            0
+          ],
+          "latent_image": [
+            "92",
+            0
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "SamplerCustomAdvanced"
+        }
+      },
+      "96": {
+        "inputs": {
+          "samples": [
+            "95",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAE Decode"
+        }
+      },
+      "97": {
+        "inputs": {
+          "filename_prefix": "dolmario-image-models/klein-compass",
+          "images": [
+            "96",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "Save Image"
+        }
+      }
+    },
+    {
+      "comfy_usage_source": "comfyui-frontend",
+      "extra_pnginfo": {
+        "workflow": {
+          "id": "7d211fdf-ad06-49c5-9572-43f4c8e9f722",
+          "revision": 0,
+          "last_node_id": 97,
+          "last_link_id": 26,
+          "nodes": [
+            {
+              "id": 1,
+              "type": "UNETLoader",
+              "pos": [
+                0,
+                80
+              ],
+              "size": [
+                270,
+                82
+              ],
+              "flags": {},
+              "order": 0,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "MODEL",
+                  "type": "MODEL",
+                  "links": [
+                    16
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "UNETLoader"
+              },
+              "widgets_values": [
+                "flux-2-klein-4b-fp8.safetensors",
+                "default"
+              ],
+              "widgets_values_named": {
+                "unet_name": "flux-2-klein-4b-fp8.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            {
+              "id": 2,
+              "type": "CLIPLoader",
+              "pos": [
+                0,
+                240
+              ],
+              "size": [
+                270,
+                106
+              ],
+              "flags": {},
+              "order": 1,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "CLIP",
+                  "type": "CLIP",
+                  "links": [
+                    14
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "CLIPLoader"
+              },
+              "widgets_values": [
+                "qwen_3_4b.safetensors",
+                "flux2",
+                "default"
+              ],
+              "widgets_values_named": {
+                "clip_name": "qwen_3_4b.safetensors",
+                "type": "flux2",
+                "device": "default"
+              }
+            },
+            {
+              "id": 3,
+              "type": "VAELoader",
+              "pos": [
+                0,
+                440
+              ],
+              "size": [
+                270,
+                58
+              ],
+              "flags": {},
+              "order": 2,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "VAE",
+                  "type": "VAE",
+                  "links": [
+                    25
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "VAELoader"
+              },
+              "widgets_values": [
+                "flux2-vae.safetensors"
+              ],
+              "widgets_values_named": {
+                "vae_name": "flux2-vae.safetensors"
+              }
+            },
+            {
+              "id": 4,
+              "type": "CLIPTextEncode",
+              "pos": [
+                330,
+                80
+              ],
+              "size": [
+                400,
+                200
+              ],
+              "flags": {},
+              "order": 7,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "clip",
+                  "type": "CLIP",
+                  "link": 14
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "CONDITIONING",
+                  "type": "CONDITIONING",
+                  "links": [
+                    15,
+                    17
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "CLIPTextEncode"
+              },
+              "widgets_values": [
+                "A cinematic close-up photograph of a weathered brass compass resting on a folded nautical chart on a dark wooden desk, warm morning sunlight through a window, finely detailed engraved metal, realistic glass reflections, soft shadows, shallow depth of field, elegant travel still life, no logos."
+              ],
+              "widgets_values_named": {
+                "text": "A cinematic close-up photograph of a weathered brass compass resting on a folded nautical chart on a dark wooden desk, warm morning sunlight through a window, finely detailed engraved metal, realistic glass reflections, soft shadows, shallow depth of field, elegant travel still life, no logos."
+              }
+            },
+            {
+              "id": 5,
+              "type": "ConditioningZeroOut",
+              "pos": [
+                790,
+                330
+              ],
+              "size": [
+                270,
+                26
+              ],
+              "flags": {},
+              "order": 8,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "conditioning",
+                  "type": "CONDITIONING",
+                  "link": 15
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "CONDITIONING",
+                  "type": "CONDITIONING",
+                  "links": [
+                    18
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "ConditioningZeroOut"
+              }
+            },
+            {
+              "id": 90,
+              "type": "CFGGuider",
+              "pos": [
+                790,
+                80
+              ],
+              "size": [
+                270,
+                98
+              ],
+              "flags": {},
+              "order": 9,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "model",
+                  "type": "MODEL",
+                  "link": 16
+                },
+                {
+                  "name": "positive",
+                  "type": "CONDITIONING",
+                  "link": 17
+                },
+                {
+                  "name": "negative",
+                  "type": "CONDITIONING",
+                  "link": 18
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "GUIDER",
+                  "type": "GUIDER",
+                  "links": [
+                    20
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "CFGGuider"
+              },
+              "widgets_values": [
+                1
+              ],
+              "widgets_values_named": {
+                "cfg": 1
+              }
+            },
+            {
+              "id": 91,
+              "type": "Flux2Scheduler",
+              "pos": [
+                0,
+                590
+              ],
+              "size": [
+                270,
+                106
+              ],
+              "flags": {},
+              "order": 3,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "SIGMAS",
+                  "type": "SIGMAS",
+                  "links": [
+                    22
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "Flux2Scheduler"
+              },
+              "widgets_values": [
+                4,
+                1024,
+                1024
+              ],
+              "widgets_values_named": {
+                "steps": 4,
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            {
+              "id": 92,
+              "type": "EmptyFlux2LatentImage",
+              "pos": [
+                330,
+                590
+              ],
+              "size": [
+                270,
+                106
+              ],
+              "flags": {},
+              "order": 4,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "LATENT",
+                  "type": "LATENT",
+                  "links": [
+                    23
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "EmptyFlux2LatentImage"
+              },
+              "widgets_values": [
+                1024,
+                1024,
+                1
+              ],
+              "widgets_values_named": {
+                "width": 1024,
+                "height": 1024,
+                "batch_size": 1
+              }
+            },
+            {
+              "id": 93,
+              "type": "KSamplerSelect",
+              "pos": [
+                650,
+                590
+              ],
+              "size": [
+                270,
+                58
+              ],
+              "flags": {},
+              "order": 5,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "SAMPLER",
+                  "type": "SAMPLER",
+                  "links": [
+                    21
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "KSamplerSelect"
+              },
+              "widgets_values": [
+                "euler"
+              ],
+              "widgets_values_named": {
+                "sampler_name": "euler"
+              }
+            },
+            {
+              "id": 94,
+              "type": "RandomNoise",
+              "pos": [
+                650,
+                450
+              ],
+              "size": [
+                270,
+                82
+              ],
+              "flags": {},
+              "order": 6,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "NOISE",
+                  "type": "NOISE",
+                  "links": [
+                    19
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "RandomNoise"
+              },
+              "widgets_values": [
+                205932306,
+                "fixed"
+              ],
+              "widgets_values_named": {
+                "noise_seed": 205932306,
+                "control_after_generate": "fixed"
+              }
+            },
+            {
+              "id": 95,
+              "type": "SamplerCustomAdvanced",
+              "pos": [
+                1110,
+                80
+              ],
+              "size": [
+                270,
+                106
+              ],
+              "flags": {},
+              "order": 10,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "noise",
+                  "type": "NOISE",
+                  "link": 19
+                },
+                {
+                  "name": "guider",
+                  "type": "GUIDER",
+                  "link": 20
+                },
+                {
+                  "name": "sampler",
+                  "type": "SAMPLER",
+                  "link": 21
+                },
+                {
+                  "name": "sigmas",
+                  "type": "SIGMAS",
+                  "link": 22
+                },
+                {
+                  "name": "latent_image",
+                  "type": "LATENT",
+                  "link": 23
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "output",
+                  "type": "LATENT",
+                  "links": [
+                    24
+                  ]
+                },
+                {
+                  "name": "denoised_output",
+                  "type": "LATENT",
+                  "links": null
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "SamplerCustomAdvanced"
+              }
+            },
+            {
+              "id": 96,
+              "type": "VAEDecode",
+              "pos": [
+                1380,
+                80
+              ],
+              "size": [
+                270,
+                46
+              ],
+              "flags": {},
+              "order": 11,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "samples",
+                  "type": "LATENT",
+                  "link": 24
+                },
+                {
+                  "name": "vae",
+                  "type": "VAE",
+                  "link": 25
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "IMAGE",
+                  "type": "IMAGE",
+                  "links": [
+                    26
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "VAEDecode"
+              }
+            },
+            {
+              "id": 97,
+              "type": "SaveImage",
+              "pos": [
+                1380,
+                250
+              ],
+              "size": [
+                410,
+                350
+              ],
+              "flags": {},
+              "order": 12,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "images",
+                  "type": "IMAGE",
+                  "link": 26
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "images",
+                  "type": "IMAGE",
+                  "links": null
+                }
+              ],
+              "properties": {},
+              "widgets_values": [
+                "dolmario-image-models/klein-compass"
+              ],
+              "widgets_values_named": {
+                "filename_prefix": "dolmario-image-models/klein-compass"
+              }
+            }
+          ],
+          "links": [
+            [
+              14,
+              2,
+              0,
+              4,
+              0,
+              "CLIP"
+            ],
+            [
+              15,
+              4,
+              0,
+              5,
+              0,
+              "CONDITIONING"
+            ],
+            [
+              16,
+              1,
+              0,
+              90,
+              0,
+              "MODEL"
+            ],
+            [
+              17,
+              4,
+              0,
+              90,
+              1,
+              "CONDITIONING"
+            ],
+            [
+              18,
+              5,
+              0,
+              90,
+              2,
+              "CONDITIONING"
+            ],
+            [
+              19,
+              94,
+              0,
+              95,
+              0,
+              "NOISE"
+            ],
+            [
+              20,
+              90,
+              0,
+              95,
+              1,
+              "GUIDER"
+            ],
+            [
+              21,
+              93,
+              0,
+              95,
+              2,
+              "SAMPLER"
+            ],
+            [
+              22,
+              91,
+              0,
+              95,
+              3,
+              "SIGMAS"
+            ],
+            [
+              23,
+              92,
+              0,
+              95,
+              4,
+              "LATENT"
+            ],
+            [
+              24,
+              95,
+              0,
+              96,
+              0,
+              "LATENT"
+            ],
+            [
+              25,
+              3,
+              0,
+              96,
+              1,
+              "VAE"
+            ],
+            [
+              26,
+              96,
+              0,
+              97,
+              0,
+              "IMAGE"
+            ]
+          ],
+          "groups": [],
+          "config": {},
+          "extra": {
+            "ds": {
+              "scale": 0.64,
+              "offset": [
+                100,
+                70
+              ]
+            },
+            "frontendVersion": "1.53.10"
+          },
+          "version": 0.4
+        }
+      },
+      "client_id": "97e9b948b3f64f378a187ebdd20b72c4",
+      "create_time": 1791697465594
+    },
+    [
+      "97"
+    ]
+  ],
+  "outputs": {
+    "97": {
+      "images": [
+        {
+          "filename": "klein-compass_00001_.png",
+          "subfolder": "dolmario-image-models",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "f33d5dfe-4c57-4c85-911a-d66ae8bc5801",
+          "timestamp": 1791697465596
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "f33d5dfe-4c57-4c85-911a-d66ae8bc5801",
+          "timestamp": 1791697465599
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "f33d5dfe-4c57-4c85-911a-d66ae8bc5801",
+          "timestamp": 1791697494456
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "97": {
+      "node_id": "97",
+      "display_node": "97",
+      "parent_node": null,
+      "real_node_id": "97"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "assets": [
+    {
+      "path": "PROMPT.txt",
+      "bytes": 296,
+      "sha256": "a858bca92b9cc87d65b4501e81d318f7bbb6bac363fc8c533daef4005eda7f42"
+    },
+    {
+      "path": "example/conditioning/flux2-compass.safetensors",
+      "bytes": 5530528,
+      "sha256": "b5af6ae57f46e3ba20b47cb5de3f89140b97c106bf678b5e0059f75485570adb"
+    },
+    {
+      "path": "example/FLUX-DEV-REFERENCE.png",
+      "bytes": 1456215,
+      "sha256": "4468c5f8ff83c1043a31e8d6768a413568b0ee6d8e50cf19c0c6dbcee8b26023"
+    }
+  ],
+  "source": "Executed FLUX2 tutorial11, native text and compass image",
+  "flux_conditioning_reused": true
+}

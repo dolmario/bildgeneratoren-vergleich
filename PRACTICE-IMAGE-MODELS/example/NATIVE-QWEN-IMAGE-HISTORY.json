@@ -1,0 +1,644 @@
+{
+  "prompt": [
+    0,
+    "2e9367c2-be1b-4f3d-b45c-d5e756c982c8",
+    {
+      "1": {
+        "inputs": {
+          "unet_name": "qwen_image_2512_fp8_e4m3fn.safetensors",
+          "weight_dtype": "default"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "Load Diffusion Model"
+        }
+      },
+      "2": {
+        "inputs": {
+          "shift": 3.1,
+          "sampling": "flow",
+          "model": [
+            "1",
+            0
+          ]
+        },
+        "class_type": "ModelSamplingAuraFlow",
+        "_meta": {
+          "title": "ModelSamplingAuraFlow"
+        }
+      },
+      "3": {
+        "inputs": {
+          "vae_name": "qwen_image_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "Load VAE"
+        }
+      },
+      "4": {
+        "inputs": {
+          "conditioning_name": "compare-qwen-positive.safetensors"
+        },
+        "class_type": "ConditioningLoader",
+        "_meta": {
+          "title": "Load Conditioning"
+        }
+      },
+      "5": {
+        "inputs": {
+          "conditioning_name": "compare-qwen-negative.safetensors"
+        },
+        "class_type": "ConditioningLoader",
+        "_meta": {
+          "title": "Load Conditioning"
+        }
+      },
+      "6": {
+        "inputs": {
+          "width": 1024,
+          "height": 1024,
+          "batch_size": 1
+        },
+        "class_type": "EmptySD3LatentImage",
+        "_meta": {
+          "title": "EmptySD3LatentImage"
+        }
+      },
+      "7": {
+        "inputs": {
+          "seed": 205932306,
+          "steps": 50,
+          "cfg": 4.0,
+          "sampler_name": "euler",
+          "scheduler": "simple",
+          "denoise": 1.0,
+          "model": [
+            "2",
+            0
+          ],
+          "positive": [
+            "4",
+            0
+          ],
+          "negative": [
+            "5",
+            0
+          ],
+          "latent_image": [
+            "6",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "8": {
+        "inputs": {
+          "samples": [
+            "7",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAE Decode"
+        }
+      },
+      "9": {
+        "inputs": {
+          "filename_prefix": "dolmario-image-models/qwen2512-compass",
+          "images": [
+            "8",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "Save Image"
+        }
+      }
+    },
+    {
+      "comfy_usage_source": "comfyui-frontend",
+      "extra_pnginfo": {
+        "workflow": {
+          "id": "119251fa-3a61-4304-9cc0-fa797b1f2d82",
+          "revision": 0,
+          "last_node_id": 9,
+          "last_link_id": 8,
+          "nodes": [
+            {
+              "id": 1,
+              "type": "UNETLoader",
+              "pos": [
+                0,
+                0
+              ],
+              "size": [
+                650,
+                120
+              ],
+              "flags": {},
+              "order": 0,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "MODEL",
+                  "type": "MODEL",
+                  "slot_index": 0,
+                  "links": [
+                    1
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "UNETLoader"
+              },
+              "widgets_values": [
+                "qwen_image_2512_fp8_e4m3fn.safetensors",
+                "default"
+              ],
+              "widgets_values_named": {
+                "unet_name": "qwen_image_2512_fp8_e4m3fn.safetensors",
+                "weight_dtype": "default"
+              }
+            },
+            {
+              "id": 2,
+              "type": "ModelSamplingAuraFlow",
+              "pos": [
+                700,
+                0
+              ],
+              "size": [
+                420,
+                100
+              ],
+              "flags": {},
+              "order": 5,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "model",
+                  "type": "MODEL",
+                  "link": 1
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "MODEL",
+                  "type": "MODEL",
+                  "slot_index": 0,
+                  "links": [
+                    2
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "ModelSamplingAuraFlow"
+              },
+              "widgets_values": [
+                3.1,
+                "flow"
+              ],
+              "widgets_values_named": {
+                "shift": 3.1,
+                "sampling": "flow"
+              }
+            },
+            {
+              "id": 3,
+              "type": "VAELoader",
+              "pos": [
+                1700,
+                520
+              ],
+              "size": [
+                650,
+                120
+              ],
+              "flags": {},
+              "order": 1,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "VAE",
+                  "type": "VAE",
+                  "slot_index": 0,
+                  "links": [
+                    7
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "VAELoader"
+              },
+              "widgets_values": [
+                "qwen_image_vae.safetensors"
+              ],
+              "widgets_values_named": {
+                "vae_name": "qwen_image_vae.safetensors"
+              }
+            },
+            {
+              "id": 4,
+              "type": "ConditioningLoader",
+              "pos": [
+                0,
+                210
+              ],
+              "size": [
+                650,
+                120
+              ],
+              "flags": {},
+              "order": 2,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "CONDITIONING",
+                  "type": "CONDITIONING",
+                  "slot_index": 0,
+                  "links": [
+                    3
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "ConditioningLoader"
+              },
+              "widgets_values": [
+                "compare-qwen-positive.safetensors"
+              ],
+              "widgets_values_named": {
+                "conditioning_name": "compare-qwen-positive.safetensors"
+              }
+            },
+            {
+              "id": 5,
+              "type": "ConditioningLoader",
+              "pos": [
+                0,
+                380
+              ],
+              "size": [
+                650,
+                120
+              ],
+              "flags": {},
+              "order": 3,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "CONDITIONING",
+                  "type": "CONDITIONING",
+                  "slot_index": 0,
+                  "links": [
+                    4
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "ConditioningLoader"
+              },
+              "widgets_values": [
+                "compare-qwen-negative.safetensors"
+              ],
+              "widgets_values_named": {
+                "conditioning_name": "compare-qwen-negative.safetensors"
+              }
+            },
+            {
+              "id": 6,
+              "type": "EmptySD3LatentImage",
+              "pos": [
+                700,
+                400
+              ],
+              "size": [
+                420,
+                106
+              ],
+              "flags": {},
+              "order": 4,
+              "mode": 0,
+              "inputs": [],
+              "outputs": [
+                {
+                  "name": "LATENT",
+                  "type": "LATENT",
+                  "slot_index": 0,
+                  "links": [
+                    5
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "EmptySD3LatentImage"
+              },
+              "widgets_values": [
+                1024,
+                1024,
+                1
+              ],
+              "widgets_values_named": {
+                "width": 1024,
+                "height": 1024,
+                "batch_size": 1
+              }
+            },
+            {
+              "id": 7,
+              "type": "KSampler",
+              "pos": [
+                1140,
+                130
+              ],
+              "size": [
+                360,
+                262
+              ],
+              "flags": {},
+              "order": 6,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "model",
+                  "type": "MODEL",
+                  "link": 2
+                },
+                {
+                  "name": "positive",
+                  "type": "CONDITIONING",
+                  "link": 3
+                },
+                {
+                  "name": "negative",
+                  "type": "CONDITIONING",
+                  "link": 4
+                },
+                {
+                  "name": "latent_image",
+                  "type": "LATENT",
+                  "link": 5
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "LATENT",
+                  "type": "LATENT",
+                  "slot_index": 0,
+                  "links": [
+                    6
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "KSampler"
+              },
+              "widgets_values": [
+                205932306,
+                "fixed",
+                50,
+                4,
+                "euler",
+                "simple",
+                1
+              ],
+              "widgets_values_named": {
+                "seed": 205932306,
+                "control_after_generate": "fixed",
+                "steps": 50,
+                "cfg": 4,
+                "sampler_name": "euler",
+                "scheduler": "simple",
+                "denoise": 1
+              }
+            },
+            {
+              "id": 8,
+              "type": "VAEDecode",
+              "pos": [
+                1800,
+                150
+              ],
+              "size": [
+                420,
+                100
+              ],
+              "flags": {},
+              "order": 7,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "samples",
+                  "type": "LATENT",
+                  "link": 6
+                },
+                {
+                  "name": "vae",
+                  "type": "VAE",
+                  "link": 7
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "IMAGE",
+                  "type": "IMAGE",
+                  "slot_index": 0,
+                  "links": [
+                    8
+                  ]
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "VAEDecode"
+              }
+            },
+            {
+              "id": 9,
+              "type": "SaveImage",
+              "pos": [
+                2250,
+                100
+              ],
+              "size": [
+                500,
+                500
+              ],
+              "flags": {},
+              "order": 8,
+              "mode": 0,
+              "inputs": [
+                {
+                  "name": "images",
+                  "type": "IMAGE",
+                  "link": 8
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "images",
+                  "type": "IMAGE",
+                  "slot_index": 0,
+                  "links": []
+                }
+              ],
+              "properties": {
+                "Node name for S&R": "SaveImage"
+              },
+              "widgets_values": [
+                "dolmario-image-models/qwen2512-compass"
+              ],
+              "widgets_values_named": {
+                "filename_prefix": "dolmario-image-models/qwen2512-compass"
+              }
+            }
+          ],
+          "links": [
+            [
+              1,
+              1,
+              0,
+              2,
+              0,
+              "MODEL"
+            ],
+            [
+              2,
+              2,
+              0,
+              7,
+              0,
+              "MODEL"
+            ],
+            [
+              3,
+              4,
+              0,
+              7,
+              1,
+              "CONDITIONING"
+            ],
+            [
+              4,
+              5,
+              0,
+              7,
+              2,
+              "CONDITIONING"
+            ],
+            [
+              5,
+              6,
+              0,
+              7,
+              3,
+              "LATENT"
+            ],
+            [
+              6,
+              7,
+              0,
+              8,
+              0,
+              "LATENT"
+            ],
+            [
+              7,
+              3,
+              0,
+              8,
+              1,
+              "VAE"
+            ],
+            [
+              8,
+              8,
+              0,
+              9,
+              0,
+              "IMAGE"
+            ]
+          ],
+          "groups": [],
+          "config": {},
+          "extra": {
+            "ds": {
+              "scale": 0.38,
+              "offset": [
+                100,
+                100
+              ]
+            },
+            "frontendVersion": "1.53.10"
+          },
+          "version": 0.4
+        }
+      },
+      "client_id": "97e9b948b3f64f378a187ebdd20b72c4",
+      "create_time": 1791697746620
+    },
+    [
+      "9"
+    ]
+  ],
+  "outputs": {
+    "9": {
+      "images": [
+        {
+          "filename": "qwen2512-compass_00001_.png",
+          "subfolder": "dolmario-image-models",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "2e9367c2-be1b-4f3d-b45c-d5e756c982c8",
+          "timestamp": 1791697746622
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "2e9367c2-be1b-4f3d-b45c-d5e756c982c8",
+          "timestamp": 1791697746625
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "2e9367c2-be1b-4f3d-b45c-d5e756c982c8",
+          "timestamp": 1791698203652
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "9": {
+      "node_id": "9",
+      "display_node": "9",
+      "parent_node": null,
+      "real_node_id": "9"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "files": [
+    {
+      "path": "01-KLEIN.api.json",
+      "bytes": 2533,
+      "sha256": "06980afb3826d17db5fe281f34924047dc445015ffcb446be671c5a02df48691"
+    },
+    {
+      "path": "01-KLEIN.json",
+      "bytes": 11525,
+      "sha256": "03bda891f7cc224ed8e6832ab9dbb46929a15edc7a93c9c895dec06dc67bb8ae"
+    },
+    {
+      "path": "02-QWEN-TEXT.api.json",
+      "bytes": 1267,
+      "sha256": "4c2966074a64bd6a357fd48492022040831e6adce80450e791790d39cf66fce8"
+    },
+    {
+      "path": "02-QWEN-TEXT.json",
+      "bytes": 4501,
+      "sha256": "1e8d5524453e9e98ea5b7dd521b2b46a65b20c50ced384373cc50c8ef3ade74f"
+    },
+    {
+      "path": "03-QWEN-IMAGE.api.json",
+      "bytes": 1728,
+      "sha256": "1559462f47647f821af2e84b8363d7ade958a194fbe9b6b82cbd27db3679074b"
+    },
+    {
+      "path": "03-QWEN-IMAGE.json",
+      "bytes": 7219,
+      "sha256": "86dd1e20a7811b02267cb8beff56facea21146728c32e98b80a78d243be1948c"
+    },
+    {
+      "path": "04-FLUX-DEV.api.json",
+      "bytes": 1975,
+      "sha256": "022d9b9ad6bb7a80acf55f87fccf4b21e39514009466fad008d75615dcb8d62b"
+    },
+    {
+      "path": "04-FLUX-DEV.json",
+      "bytes": 9462,
+      "sha256": "a6a3374238f88c3345c62d3e087fb868969c94924a8f6edb23011fdd68a5c8af"
+    },
+    {
+      "path": "BASELINE-ASSETS.json",
+      "bytes": 646,
+      "sha256": "87e4556f550dae0f402519bc58e955549725b7d5f783a865990bccceac26149b"
+    },
+    {
+      "path": "comfy_runner.py",
+      "bytes": 7922,
+      "sha256": "fb57713effaa41e90aad8f069157051db9441dd59638666ae3aa4529c05ec353"
+    },
+    {
+      "path": "download_models.py",
+      "bytes": 2153,
+      "sha256": "0fc35206a528b8e56dc32f3b60a1bc3836aca43da8b05df1b3f8612f811a797d"
+    },
+    {
+      "path": "ENVIRONMENT.json",
+      "bytes": 825,
+      "sha256": "31156b06a656c6275f570d4d845ccf6ffa07012918269303741567adc7cff71e"
+    },
+    {
+      "path": "example/conditioning/flux2-compass.safetensors",
+      "bytes": 5530528,
+      "sha256": "b5af6ae57f46e3ba20b47cb5de3f89140b97c106bf678b5e0059f75485570adb"
+    },
+    {
+      "path": "example/FLUX-DEV-REFERENCE.png",
+      "bytes": 1456215,
+      "sha256": "4468c5f8ff83c1043a31e8d6768a413568b0ee6d8e50cf19c0c6dbcee8b26023"
+    },
+    {
+      "path": "example/KLEIN.png",
+      "bytes": 1270978,
+      "sha256": "ec6ad17abab6bd2d1317be2e918a7eedbfa3197bfea3f573e3de8d21437bc52f"
+    },
+    {
+      "path": "example/NATIVE-KLEIN-HISTORY.json",
+      "bytes": 22029,
+      "sha256": "8803a6ed3a7b5291a3d941a9868e0c3e0debb5549a6a0f06eae958a87971eddf"
+    },
+    {
+      "path": "example/NATIVE-QWEN-IMAGE-HISTORY.json",
+      "bytes": 15947,
+      "sha256": "04b419944b339a3c4e59fc18f4c776a1a9663969a5f7b32db29c245fad036029"
+    },
+    {
+      "path": "example/NATIVE-QWEN-TEXT-HISTORY.json",
+      "bytes": 10249,
+      "sha256": "240a4a618d6e377704d127b130a2e94aaae8236f48acfbbdf01b111927521ef6"
+    },
+    {
+      "path": "example/QWEN2512.png",
+      "bytes": 1323761,
+      "sha256": "f1aa99160f1ce1665a52378f09c5f72ff99e02f0dc5040f5fe8882d7b80babdf"
+    },
+    {
+      "path": "install_sources.py",
+      "bytes": 3089,
+      "sha256": "6711b05141d5556574904a95824490c87801bfd5085bfef461bc0ac0d5289fe8"
+    },
+    {
+      "path": "MODELS.json",
+      "bytes": 3709,
+      "sha256": "52b0bee51df5d3a753d444c3b656171b1c1692c8b46fca12b2c73d64191fc431"
+    },
+    {
+      "path": "PROMPT.txt",
+      "bytes": 296,
+      "sha256": "a858bca92b9cc87d65b4501e81d318f7bbb6bac363fc8c533daef4005eda7f42"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4086,
+      "sha256": "52034f0c4f2790917cee964880f729440432eacb090ee7e31be54afc2e4c7d48"
+    },
+    {
+      "path": "run_compare.py",
+      "bytes": 5593,
+      "sha256": "3d16f444c5db1ed1c7e42a5a85757c4d91822627f9d078308974bd77097db61e"
+    },
+    {
+      "path": "SOURCES.json",
+      "bytes": 754,
+      "sha256": "a7657e40f31d7263499a9a23e76a3c957e86b1eb03d4313d318cc687864239e9"
+    },
+    {
+      "path": "VALIDATION.json",
+      "bytes": 1194,
+      "sha256": "b8162eb0fef7b983dfbfc35962f152167ab5f14d75f9958f53057112b949dade"
+    }
+  ]
+}
